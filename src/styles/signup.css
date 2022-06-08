@@ -1,4 +1,4 @@
-:root{
+:root {
   --gap: calc((1/30)*100vh)
 }
 
@@ -7,32 +7,43 @@
   flex-direction: row;
   height: calc(100vh - (1/15)*100vh);
   margin: var(--gap);
-  
+
   gap: var(--gap);
 }
+
 .block {
   height: inherit;
   background: white;
 }
-.signup_image_block{
+
+.signup_image_block {
   border-radius: 20px;
   background: url(../images/pexels-karolina-grabowska-4466208.png);
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   width: calc(40% - var(--gap)/2);
 }
-.signup_form_block{
-  display:flex;
+
+.signup_form_block {
+  display: flex;
   justify-content: center;
   width: calc(60% - var(--gap)/2);
 }
 
-.exit{
+.exit {
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 2px;
+  border-radius:12px;
   position: absolute;
   right: var(--gap);
   top: var(--gap);
 }
-.dddd{
+.exit:hover {
+  background: rgba(168, 172, 184, 0.1);
+
+}
+.dddd {
   gap: 15px;
   display: flex;
   flex-direction: column;
@@ -40,48 +51,60 @@
   font-style: normal;
 }
 
-.form_space{
+.form_space {
   min-width: 495px;
   position: relative;
   justify-content: center;
   display: flex;
   flex-direction: column;
 }
-.form_footer{
+
+.form_footer {
+  padding-left: 4px;
+  padding-right: 4px;
+
+  border-radius: 4px;
   font-weight: 400;
   font-size: 14px;
   line-height: 140%;
   color: #A8ACB8;
   position: absolute;
   bottom: 0;
-  left: 0; 
-  right: 0; 
-  margin-left: auto; 
-  margin-right: auto; 
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   width: fit-content;
 }
-.form_header{
+.form_footer:hover{
+  background: rgba(168, 172, 184, 0.1);
+}
+.form_header {
   font-weight: 700;
   font-size: 32px;
   line-height: 36px;
   color: #313131;
- 
+
 }
-.form_title{
+
+.form_title {
   margin-bottom: 8px;
 }
-.form_subtitle{
+
+.form_subtitle {
   margin-bottom: 34px;
   font-weight: 400;
   font-size: 14px;
   line-height: 140%;
   color: #A8ACB8;
 }
-input:focus{
+
+input:focus {
   color: #313131;
   border: #313131;
 }
-input{
+
+input {
   padding: 14px;
   padding-left: 22px;
   color: #313131;
@@ -93,22 +116,28 @@ input{
   border-radius: 40px;
   border: 0;
 }
-.inputs_in_row{
+
+.inputs_in_row {
   gap: 15px;
   display: flex;
   flex-direction: row;
 }
-.inputs_in_row > input{
+
+.inputs_in_row>input {
   width: 100%;
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #A8ACB8;
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
-  opacity: 1; /* Firefox */
+  opacity: 1;
+  /* Firefox */
 }
-.submit_button{
+
+.submit_button {
   box-sizing: border-box;
   height: 56px;
   background: #3BBEB6;
@@ -120,14 +149,17 @@ input{
   text-align: center;
   color: #FFFFFF;
 }
-.submit_button:hover{
+
+.submit_button:hover {
   background: #319b93;
   border: 1px solid #3BBEB6;
 }
-.form_footer_green{
+
+.form_footer_green {
   color: #3BBEB6;
 }
-.errors{
+
+.errors {
   font-weight: 400;
   font-size: 14px;
   line-height: 140%;
