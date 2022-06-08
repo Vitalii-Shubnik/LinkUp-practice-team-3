@@ -12,7 +12,12 @@ const SignUpForm = () => {
           } else if (
             !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
           ) {
-            errors.email = 'Invalid email address';
+            errors.email = 'Invalid email address'
+          }
+          if (values.password.length < 6) {
+            errors.password = 'Password must contain 6 or more symbols'
+          } else if (values.password !== values.confirmPassword){
+            errors.password = 'Passwords don`t match'
           }
           return errors;
         }}
