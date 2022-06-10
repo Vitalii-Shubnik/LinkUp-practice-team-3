@@ -1,8 +1,10 @@
-import {React} from 'react'
-import SignUp from './pages/SignUp';
+import { React } from "react";
+import Basic from "./pages/Login";
 function App() {
   return (
-    <div></div>
+    <div>
+      <Basic />
+    </div>
   );
 }
 

@@ -1,0 +1,122 @@
+
+.input1{
+    box-sizing: border-box;
+    height: 40px;
+    width: 250px;
+    background: rgba(168, 172, 184, 0.1);
+    backdrop-filter: blur(4px);
+    border-radius: 40px;
+    padding: 10px;
+    margin: 6px;
+    color: #313131;
+    border: #313131;
+    border: 0;
+}
+.input2{
+    box-sizing: border-box;
+    height: 40px;
+    width: 250px;
+    background: rgba(168, 172, 184, 0.1);
+    backdrop-filter: blur(4px);
+    border-radius: 40px;
+    padding: 10px;
+    margin: 6px;
+    color: #313131;
+    border: #313131;
+    border: 0;
+}
+.login-sbm{
+    box-sizing: border-box;
+    height: 40px;
+    width: 250px;
+    background: #3BBEB6;
+    border: 1px solid #3BBEB6;
+    border-radius: 40px;
+    margin: 6px;
+}
+
+.wel_label1{
+    font-family: 'Almarai';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 36px;
+    margin: 6px;
+    color: #313131;
+}
+.wel_label2{
+    margin: 6px;
+    font-family: 'Almarai';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #A8ACB8;
+}
+
+.form2{
+
+    display: flex;
+    flex-direction: column;
+
+    margin: 6px;
+}
+.form3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.content{
+    height: 754.4px;
+    border: #3BBEB6 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    margin-right:  150px;
+
+}
+.imagelogo{
+    height: 95%;
+    margin-left: 25px;
+
+}
+
+.anchor {
+    color: #3BBEB6;
+}
+
+  .signup {
+    padding-left: 4px;
+    padding-right: 4px;
+  
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #A8ACB8;
+    position: absolute;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+  }
+  .signup:hover{
+    background: rgba(168, 172, 184, 0.1);
+  }
+
+.errors {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 140%;
+    color: #ff8e8e;
+  }
+
+  .cross{
+    position: absolute;
+    left: 97.19%;
+    right: 2.19%;
+    top: 3.8%;
+    bottom: 95.09%;
+
+  }
