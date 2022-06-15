@@ -4,10 +4,11 @@
   --verticalpadding: 13px;
 }
 
-.navbardiv {
+.navbar-div {
   padding-left: var(--sidepading);
   padding-right: var(--sidepading);
   height: var(--height);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .content-wrapper {

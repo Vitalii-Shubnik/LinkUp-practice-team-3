@@ -10,7 +10,7 @@ const NavBar = () => {
   const [count, setCount] = useState(9);
   const [user, setUser] = useState(true);
   return (
-    <div className='navbardiv'>
+    <div className='navbar-div'>
       <div className='content-wrapper'>
         <div className='image_div'>
           <img src={logo} alt='logo' />
