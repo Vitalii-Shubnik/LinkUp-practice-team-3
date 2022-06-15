@@ -103,8 +103,10 @@ input:focus {
   color: #313131;
   border: #313131;
 }
-
-input {
+input:focus{
+  outline: none;
+}
+.form-input {
   padding: 14px;
   padding-left: 22px;
   color: #313131;

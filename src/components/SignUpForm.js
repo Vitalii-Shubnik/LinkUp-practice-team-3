@@ -16,7 +16,7 @@ const SignUpForm = () => {
           }
           if (values.password.length < 6) {
             errors.password = 'Password must contain 6 or more symbols'
-          } else if (values.password !== values.confirmPassword){
+          } else if (values.password !== values.confirmPassword) {
             errors.password = 'Passwords don`t match'
           }
           return errors;
@@ -41,6 +41,7 @@ const SignUpForm = () => {
           <form onSubmit={handleSubmit} className='dddd'>
             <div className='inputs_in_row'>
               <input
+                className='form-input'
                 placeholder='First Name'
                 type="text"
                 name="firstname"
@@ -49,6 +50,7 @@ const SignUpForm = () => {
                 value={values.firstname}
               />
               <input
+                className='form-input'
                 placeholder='Last Name'
                 type="text"
                 name="lastname"
@@ -58,6 +60,7 @@ const SignUpForm = () => {
               />
             </div>
             <input
+              className='form-input'
               placeholder='Email addres'
               type="email"
               name="email"
@@ -66,6 +69,7 @@ const SignUpForm = () => {
               value={values.email}
             />
             <input
+              className='form-input'
               placeholder='Password'
               type="password"
               name="password"
@@ -74,6 +78,7 @@ const SignUpForm = () => {
               value={values.password}
             />
             <input
+              className='form-input'
               placeholder='Confirm password'
               type="password"
               name="confirmPassword"
