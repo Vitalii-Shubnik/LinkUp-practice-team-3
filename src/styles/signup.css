@@ -125,7 +125,7 @@ input:focus{
   flex-direction: row;
 }
 
-.inputs_in_row>input {
+.input-in-row > input {
   width: 100%;
 }
 
@@ -140,6 +140,7 @@ input:focus{
 }
 
 .submit_button {
+  margin-top: 19px;
   box-sizing: border-box;
   height: 56px;
   background: #3BBEB6;
@@ -161,12 +162,22 @@ input:focus{
   color: #3BBEB6;
 }
 
-.errors {
+.error {
+  display: none;
   font-weight: 400;
   font-size: 14px;
-  line-height: 140%;
   color: #ff8e8e;
+}
+
+.input-in-row{
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 15px;
+}
+.shown{
+  display: block;
+}
+.hidden{
+  display: none;
 }

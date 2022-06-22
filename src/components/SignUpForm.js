@@ -13,14 +13,14 @@ const SignUpForm = () => {
       .required('Lastname is required'),
     email: Yup.string().email('Invalid email').required('Email is required'),
     password: Yup.string()
-    .min(6, 'Password is too short!')
-    .max(50, 'Password is too long!')
-    .required('Password is required'),
-    confirmPassword: Yup.string().test('password-match', 'Passwords do not match', function(value) {
+      .min(6, 'Password is too short!')
+      .max(50, 'Password is too long!')
+      .required('Password is required'),
+    confirmPassword: Yup.string().test('password-match', 'Passwords do not match', function (value) {
       const { password } = this.parent;
       return password === value;
     })
-    .required('Confirm password is required'),
+      .required('Confirm password is required'),
   });
   return (
     <>
@@ -45,24 +45,30 @@ const SignUpForm = () => {
         }) => (
           <form onSubmit={handleSubmit} className='signup-form'>
             <div className='inputs_in_row'>
-              <input
-                className='form-input'
-                placeholder='First Name'
-                type="text"
-                name="firstname"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.firstname}
-              />
-              <input
-                className='form-input'
-                placeholder='Last Name'
-                type="text"
-                name="lastname"
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={values.lastname}
-              />
+              <div className='input-in-row'>
+                <input
+                  className='form-input'
+                  placeholder='First Name'
+                  type="text"
+                  name="firstname"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.firstname}
+                />
+                <div className={`error ${touched.firstname && errors.firstname && 'shown'}`}>{errors.firstname}</div>
+              </div>
+              <div className='input-in-row'>
+                <input
+                  className='form-input'
+                  placeholder='Last Name'
+                  type="text"
+                  name="lastname"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.lastname}
+                />
+                <div className={`error ${touched.lastname && errors.lastname && 'shown'}`}>{errors.lastname}</div>
+              </div>
             </div>
             <input
               className='form-input'
@@ -73,6 +79,7 @@ const SignUpForm = () => {
               onBlur={handleBlur}
               value={values.email}
             />
+            <div className={`error ${touched.email && errors.email && 'shown'}`}>{errors.email}</div>
             <input
               className='form-input'
               placeholder='Password'
@@ -82,6 +89,7 @@ const SignUpForm = () => {
               onBlur={handleBlur}
               value={values.password}
             />
+            <div className={`error ${touched.password && errors.password && 'shown'}`}>{errors.password}</div>
             <input
               className='form-input'
               placeholder='Confirm password'
@@ -91,14 +99,7 @@ const SignUpForm = () => {
               onBlur={handleBlur}
               value={values.confirmPassword}
             />
-            <div className='errors'>
-              <span>{touched.firstname && errors.firstname}</span>
-              <span>{touched.lastname && errors.lastname}</span>
-              <span>{touched.email && errors.email}</span>
-              <span>{touched.password && errors.password}</span>
-              <span>{touched.confirmPassword && errors.confirmPassword}</span>
-
-            </div>
+            <div className={`error ${touched.confirmPassword && errors.confirmPassword && 'shown'}`}>{errors.confirmPassword}</div>
             <button className='submit_button' type="submit" disabled={isSubmitting}>
               Next
             </button>
