@@ -1,26 +1,32 @@
 import React from 'react'
 import { Formik } from 'formik'
+import * as Yup from 'yup'
 const SignUpForm = () => {
+  const SignupSchema = Yup.object().shape({
+    firstname: Yup.string()
+      .min(2, 'Name is too short!')
+      .max(50, 'Name is too long!')
+      .required('Name is required'),
+    lastname: Yup.string()
+      .min(2, 'Lastame is too short!')
+      .max(50, 'Lastame is too long!')
+      .required('Lastname is required'),
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    password: Yup.string()
+    .min(6, 'Password is too short!')
+    .max(50, 'Password is too long!')
+    .required('Password is required'),
+    confirmPassword: Yup.string().test('password-match', 'Passwords do not match', function(value) {
+      const { password } = this.parent;
+      return password === value;
+    })
+    .required('Confirm password is required'),
+  });
   return (
     <>
       <Formik
         initialValues={{ firstname: '', lastname: '', email: '', password: '', confirmPassword: '' }}
-        validate={values => {
-          const errors = {};
-          if (!values.email) {
-            errors.email = 'Required';
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          ) {
-            errors.email = 'Invalid email address'
-          }
-          if (values.password.length < 6) {
-            errors.password = 'Password must contain 6 or more symbols'
-          } else if (values.password !== values.confirmPassword) {
-            errors.password = 'Passwords don`t match'
-          }
-          return errors;
-        }}
+        validationSchema={SignupSchema}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
@@ -36,9 +42,8 @@ const SignUpForm = () => {
           handleBlur,
           handleSubmit,
           isSubmitting,
-          /* and other goodies */
         }) => (
-          <form onSubmit={handleSubmit} className='dddd'>
+          <form onSubmit={handleSubmit} className='signup-form'>
             <div className='inputs_in_row'>
               <input
                 className='form-input'
@@ -87,8 +92,12 @@ const SignUpForm = () => {
               value={values.confirmPassword}
             />
             <div className='errors'>
-              {errors.email && touched.email && errors.email}
-              {errors.password && touched.password && errors.password}
+              <span>{touched.firstname && errors.firstname}</span>
+              <span>{touched.lastname && errors.lastname}</span>
+              <span>{touched.email && errors.email}</span>
+              <span>{touched.password && errors.password}</span>
+              <span>{touched.confirmPassword && errors.confirmPassword}</span>
+
             </div>
             <button className='submit_button' type="submit" disabled={isSubmitting}>
               Next
