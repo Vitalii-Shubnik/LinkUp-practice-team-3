@@ -128,7 +128,9 @@ input:focus{
 .input-in-row > input {
   width: 100%;
 }
-
+.logo-image{
+  border-radius: 0;
+}
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #A8ACB8;
