@@ -20,7 +20,11 @@ const Product = (props) => {
           <CardIcon />
           In Card
         </div>
-        <img src={props.item.image} alt={props.item.title} />
+        <img
+          className="img_product"
+          src={props.item.image}
+          alt={props.item.title}
+        />
         <h1 className="title">{props.item.title}</h1>
         <h1 className="sold">{props.item.sold} Sold</h1>
       </div>
