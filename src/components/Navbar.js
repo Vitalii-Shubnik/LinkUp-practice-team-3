@@ -10,10 +10,10 @@ const NavBar = ({ visionCard, setVisionCard }) => {
   const [count, setCount] = useState(9);
   const [user, setUser] = useState(true);
   return (
-    <div className="navbar-div">
-      <div className="content-wrapper">
-        <div className="image_div">
-          <img src={logo} alt="logo" />
+    <div className='navbar-div'>
+      <div className='content-wrapper'>
+        <div className='image_div'>
+          <img src={logo} alt='logo' className='logo-image' />
         </div>
         <Search />
         <div className="right-panel">

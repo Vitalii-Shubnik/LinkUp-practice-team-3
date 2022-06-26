@@ -102,7 +102,8 @@
   order: 0;
   flex-grow: 0;
 }
-.log-in-btn:hover{
+
+.log-in-btn:hover {
   background: #f7f7f7;
   border: 1px solid #3BBEB6;
 }
@@ -115,10 +116,12 @@
   font-size: 14px;
   line-height: 16px;
 }
-.sign-up-btn:hover{
+
+.sign-up-btn:hover {
   background: #319b93;
   border: 1px solid #3BBEB6;
 }
+
 .sign-up-btn {
   border: 0;
   background: #3BBEB6;
@@ -127,22 +130,34 @@
   line-height: 16px;
   color: #FFFFFF;
 }
-.user-menu{
+
+.user-menu {
   position: relative;
-  border: 1px solid rgba(168, 172, 184,0.3);
+  border: 1px solid rgba(168, 172, 184, 0.3);
   border-radius: 50px;
   display: flex;
   flex-direction: row;
   align-items: center;
 }
-.avatar{
+
+.avatar {
   margin: 5px;
   border-radius: 32px;
 }
-.hidden{
+.hamburger{
+  height: fit-content;
+  width: fit-content;
+  border-radius: 32px;
+}
+.logo-image {
+  border-radius: 0px;
+}
+
+.hidden {
   display: none;
 }
-.logout-btn{
+
+.logout-btn {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
@@ -154,7 +169,8 @@
   border: 0;
 
 }
-.logout-btn:hover{
+
+.logout-btn:hover {
   background: #319b93;
   border: 1px solid #3BBEB6;
 }
