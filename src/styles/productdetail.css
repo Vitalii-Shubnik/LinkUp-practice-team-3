@@ -100,6 +100,7 @@
 }
 
 .product-detail-add-to-cart-button {
+  cursor: pointer;
   width: 148px;
   height: 54px;
   border: 1px solid #3BBEB6;
@@ -108,6 +109,10 @@
   font-size: 14px;
   color: #3BBEB6;
   background: #FFFFFF;
+}
+.product-detail-add-to-cart-button:hover{
+  background: #3BBEB6;
+  color: #FFFFFF;
 }
 
 .page-horizontal-divider {

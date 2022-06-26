@@ -8,7 +8,7 @@ import UserMenu from './UserMenu'
 
 const NavBar = () => {
   const [count, setCount] = useState(9);
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
   return (
     <div className='navbar-div'>
       <div className='content-wrapper'>
