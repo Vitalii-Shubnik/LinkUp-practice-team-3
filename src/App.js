@@ -6,12 +6,14 @@ import AllProduct from "./components/AllProduct";
 import products from "./components/data.js";
 import {Link} from 'react-router-dom'
 import NavBar from './components/Navbar'
+import ProductDetail from './pages/ProductDetail';
 
 function App() {
   return (
-    <div>
+    <>
       <NavBar />
-    </div>
+      <ProductDetail />
+    </>
   );
 }
 
