@@ -17,7 +17,7 @@ const ImageSlider = ({ data }) => {
         <div className='description'>
           {data[currentIndex].description}
         </div>
-        <div className='title'>
+        <div className='slider-title'>
           {data[currentIndex].title}
         </div>
       </div>
