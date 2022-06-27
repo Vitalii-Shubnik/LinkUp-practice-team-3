@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/productdetail.css'
 import ArrowBack from '../images/arrow-back.png'
 import testImage from '../images/SliderImage.png'
+import { useNavigate } from 'react-router-dom'
 //temporary data
 const mainData = {
   title: 'Wiley Saddle Bag - Fossil',
@@ -16,10 +17,11 @@ const extraData = {
 }
 const ProductDetail = () => {
   
+  const navigate = useNavigate()
 
   return (
     <div className='product-detail-container'>
-      <div className='back-button'>
+      <div className='back-button' onClick={()=>navigate('/')}>
         <img src={ArrowBack} alt='arrow-back' className='back-arrow' />
         <span className='back-text' >Back</span>
       </div>
