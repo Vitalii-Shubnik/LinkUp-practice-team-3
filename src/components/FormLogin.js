@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/login.css";
+import "../styles/auth.css";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
@@ -35,7 +35,7 @@ const FormLogin = () => {
           handleSubmit,
           isSubmitting,
         }) => (
-          <form className="signin_form" onSubmit={handleSubmit}>
+          <form className="signup-form" onSubmit={handleSubmit}>
             <input
               className="login_form_input"
               type="email"
@@ -46,7 +46,7 @@ const FormLogin = () => {
               value={values.email}
             />
             <div
-              className={`errors ${touched.email && errors.email && "shown"}`}
+              className={`error ${touched.email && errors.email && "shown"}`}
             >
               {errors.email}
             </div>
@@ -61,7 +61,7 @@ const FormLogin = () => {
             />
 
             <div
-              className={`errors ${
+              className={`error ${
                 touched.password && errors.password && "shown"
               }`}
             >

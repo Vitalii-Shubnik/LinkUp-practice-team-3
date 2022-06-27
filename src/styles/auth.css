@@ -1,8 +1,8 @@
-/* :root {
+:root {
     --gap: calc((1/30)*100vh)
-  } */
+  }
   
-  .login_main_containter {
+  .main_containter {
     display: flex;
     flex-direction: row;
     height: calc(100vh - (1/15)*100vh);
@@ -11,20 +11,32 @@
     gap: var(--gap);
   }
   
-  .login_block {
+  .block {
     height: inherit;
     background: white;
   }
   
+  .signup_image_block {
+    border-radius: 20px;
+    background: url(../images/pexels-karolina-grabowska-4466208.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: calc(40% - var(--gap)/2);
+  }
+  
+  .signup_form_block {
+    display: flex;
+    justify-content: center;
+    width: calc(60% - var(--gap)/2);
+  }
+
+
   .signin_image_block {
     border-radius: 20px;
     background: url(../images/pexels_login.png);
     background-repeat: no-repeat;
     background-size: cover;
-    /* height: 95%; */
-    /* margin-left: 25px; */
     width: 1112px;
-    /* width: calc(75% - var(--gap)/2); */
   }
   
   .signin_form_block {
@@ -33,7 +45,9 @@
     width: calc(60% - var(--gap)/2);
   }
   
-  .cross {
+
+
+  .exit {
     padding-left: 4px;
     padding-right: 4px;
     padding-top: 2px;
@@ -42,11 +56,13 @@
     right: var(--gap);
     top: var(--gap);
   }
-  .cross:hover {
+  .exit:hover {
     background: rgba(168, 172, 184, 0.1);
   
+
+
   }
-  .signin_form {
+  .signup-form {
     gap: 15px;
     display: flex;
     flex-direction: column;
@@ -54,6 +70,14 @@
     font-style: normal;
   }
   
+  .form_space {
+    min-width: 495px;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+  }
+ 
   .login_form_space {
     min-width: 373px;
     position: relative;
@@ -61,8 +85,8 @@
     display: flex;
     flex-direction: column;
   }
-  
-  .login_form_footer {
+
+  .form_footer {
     padding-left: 4px;
     padding-right: 4px;
   
@@ -79,10 +103,11 @@
     margin-right: auto;
     width: fit-content;
   }
-  .login_form_footer:hover{
+  .form_footer:hover{
     background: rgba(168, 172, 184, 0.1);
   }
-  .login_form_header {
+
+  .form_header {
     font-weight: 700;
     font-size: 32px;
     line-height: 36px;
@@ -90,11 +115,11 @@
   
   }
   
-  .login_form_title {
+  .form_title {
     margin-bottom: 8px;
   }
   
-  .login_form_subtitle {
+  .form_subtitle {
     margin-bottom: 34px;
     font-weight: 400;
     font-size: 14px;
@@ -109,7 +134,7 @@
   input:focus{
     outline: none;
   }
-  .login_form_input {
+  .form-input {
     padding: 14px;
     padding-left: 22px;
     color: #313131;
@@ -122,6 +147,16 @@
     border: 0;
   }
   
+  .inputs_in_row {
+    gap: 15px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .input-in-row > input {
+    width: 100%;
+  }
+  
   ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #A8ACB8;
@@ -130,6 +165,62 @@
     line-height: 16px;
     opacity: 1;
     /* Firefox */
+  }
+  
+  .submit_button {
+    margin-top: 19px;
+    box-sizing: border-box;
+    height: 56px;
+    background: #3BBEB6;
+    border: 1px solid #3BBEB6;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+  
+  .submit_button:hover {
+    background: #319b93;
+    border: 1px solid #3BBEB6;
+  }
+  
+  .form_footer_green {
+    color: #3BBEB6;
+  }
+  
+  .error {
+    display: none;
+    font-weight: 400;
+    font-size: 14px;
+    color: #ff8e8e;
+  }
+  
+  .input-in-row{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .shown{
+    display: block;
+  }
+  .hidden{
+    display: none;
+  }
+
+  .login_form_input {
+    padding: 14px;
+    padding-left: 22px;
+    color: #313131;
+    border: #313131;
+    box-sizing: border-box;
+    height: 45px;
+    background: rgba(168, 172, 184, 0.1);
+    backdrop-filter: blur(4px);
+    border-radius: 40px;
+    border: 0;
   }
   
   .login_sub_button {
@@ -144,27 +235,4 @@
     line-height: 16px;
     text-align: center;
     color: #FFFFFF;
-  }
-  
-  .login_sub_button:hover {
-    background: #319b93;
-    border: 1px solid #3BBEB6;
-  }
-  
-  .login_form_footer_green {
-    color: #3BBEB6;
-  }
-  
-  .errors {
-    display: none;
-    font-weight: 400;
-    font-size: 14px;
-    color: #ff8e8e;
-  }
-  
-  .shown{
-    display: block;
-  }
-  .hidden{
-    display: none;
   }
