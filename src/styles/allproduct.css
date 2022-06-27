@@ -54,7 +54,7 @@
 	z-index: 5;
 }
 
-img {
+.img_product{
 	width: 100%;
 	border-radius: 20px;
 }
