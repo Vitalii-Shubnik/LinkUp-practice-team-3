@@ -24,7 +24,6 @@ const Element = (props) => {
       <div className="info_cart_wrapper">
         <div className="elem_title">{props.item.title}</div>
         <div className="elem_price">${props.item.price}</div>
-        {/* <div className="elem_count">{props.item.count} Sold</div> */}
       </div>
 
       <div className="elem_btns">

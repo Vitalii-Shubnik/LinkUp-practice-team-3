@@ -1,6 +1,4 @@
 import example from "../images/logo.png";
-
-// eslint-disable-next-line no-unused-vars
 let props_cart = [
   {
     id: 0,

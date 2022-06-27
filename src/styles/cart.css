@@ -12,7 +12,6 @@
 .active{
     transform: translateX(0);
     transition: all 0.2s;
-    /* opacity: 0.35; */
 }
 
 .blur{
@@ -35,7 +34,6 @@
     background-color: gray;
     opacity: 0.35;
     transition: all 1s;
-
 }
 
 .cart_none_opacity{
@@ -58,7 +56,6 @@
     flex-direction: column;
     align-self: center;
     transition: all 0.4s;
-    
 }
 
 .cart_header{
@@ -170,7 +167,6 @@
 
 .elem_plus{
     position: absolute;
-	/* margin-right: 16px; */
     right: 20px;
     bottom: 18px;
 	height: 33px;
@@ -185,7 +181,6 @@
 .elem_minus{
 	border: 0px;
     position: absolute;
-	/* margin-right: 16px; */
     right: 87px;
     bottom: 18px;
 	height: 33px;
@@ -258,7 +253,6 @@
 ._checkout_active{
     transform: translateX(0);
     transition: all 0.2s;
-    /* opacity: 0.35; */
 }
 
 ._checkout_content{

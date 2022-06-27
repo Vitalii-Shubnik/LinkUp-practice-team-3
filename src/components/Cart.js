@@ -18,11 +18,6 @@ const Cart = ({
       0
     )
   );
-  // const totalPrice = items.reduce(
-  //   (total, currentValue) =>
-  //     (total = total + currentValue.price * currentValue.count),
-  //   0
-  // );
   const getDisplayNumber = (num) =>
     (Math.round(Number(num) * 100) / 100).toFixed(2);
   console.log(items);
@@ -37,9 +32,7 @@ const Cart = ({
         className={visionCard ? "cart active" : "cart"}
         onClick={() => setVisionCard(false)}
       >
-        {/* <div className="blur"></div> */}
         <div className="cart_content" onClick={(e) => e.stopPropagation()}>
-          {/* <div className="cart_content" onClick={(r) => r.stopPropagination()}> */}
           <div className="cart_header">My Cart</div>
           <div
             className="cross"
