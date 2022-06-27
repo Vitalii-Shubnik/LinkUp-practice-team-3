@@ -8,7 +8,7 @@ const SignUp = () => {
   return (
     <div className="main_containter">
       <div className="block signup_image_block"></div>
-      <div className="block signup_form_block">
+      <div className="block auth_form_block">
         <div className="form_space">
           <div className="form_header">
             <div className="form_title">Sign up</div>

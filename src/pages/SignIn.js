@@ -7,8 +7,8 @@ import FormLogin from "../components/FormLogin";
 const SignIn = () => {
   return (
     <div className="main_containter">
-      <div className="login_block signin_image_block"></div>
-      <div className="login_block signin_form_block">
+      <div className="block signin_image_block"></div>
+      <div className="block auth_form_block">
         <div className="login_form_space">
           <div className="form_header">
             <div className="form_title">Welcome</div>
