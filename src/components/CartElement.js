@@ -10,7 +10,7 @@ const Element = (props) => {
   const decrease = () => {
     if (counter !== 0) setCounter((count) => count - 1);
   };
-  console.log(props.item);
+
   return (
     <div className="cart_elem">
       <div className="img_cart_wrapper">

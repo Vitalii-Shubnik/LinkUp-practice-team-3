@@ -20,7 +20,6 @@ const Cart = ({
   );
   const getDisplayNumber = (num) =>
     (Math.round(Number(num) * 100) / 100).toFixed(2);
-  console.log(items);
   return (
     <div className="cart_conteiner">
       <div
