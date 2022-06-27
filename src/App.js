@@ -5,6 +5,9 @@ import Cart from "./components/Cart";
 import props_cart from "./components/data2.js";
 import image from './images/SliderImage.png'
 
+import Categories from './components/Categories';
+
+
 const imageSliderData = [
   {
     description: 'Test1',
