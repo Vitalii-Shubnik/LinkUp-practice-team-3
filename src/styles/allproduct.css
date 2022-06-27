@@ -8,14 +8,14 @@
 
 .products-grid {
 	position: relative;
-	list-style: none;
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 10px;
 	padding: 0;
-	margin: -20px;
 }
 
-.gradient{
+.gradient {
 	z-index: 2;
 	position: absolute;
 	width: 100%;
@@ -23,7 +23,8 @@
 	bottom: 0;
 	background: linear-gradient(to bottom, transparent, white);
 }
-.gradient:hover{
+
+.gradient:hover {
 	z-index: -1;
 	position: absolute;
 	width: 100%;
@@ -32,31 +33,37 @@
 	background: linear-gradient(to bottom, transparent, white);
 }
 
-.products-grid li {
-	width: 262px;
-	margin: 11px;
+@media (min-width: 1536px){
+	.product-card{
+		width: 18%;
+	}
+}
+@media (max-width: 1536px){
+	.product-card {
+		width: 240px;
+	}
+}
+.product-card {
+	margin-bottom: 2%;
 	background: #FFFFFF;
 	box-shadow: 0px 4px 19px rgba(0, 0, 0, 0.06);
 	border-radius: 20px;
 }
 
-.products-grid li:hover {
+.product-card:hover {
 	z-index: 5;
-	width: 262px;
-	margin: 11px;
-	background: #FFFFFF;
-	box-shadow: 0px 4px 19px rgba(0, 0, 0, 0.06);
-	border-radius: 20px;
 }
 
-img{
+img {
 	width: 100%;
 	border-radius: 20px;
 }
-.info{
+
+.product-main-info {
 	position: relative;
 }
-.info2{
+
+.product-price-info {
 	z-index: 1;
 	display: flex;
 	justify-content: space-between;
@@ -69,7 +76,7 @@ img{
 	justify-content: space-around;
 	align-items: center;
 } */
-.price{
+.product-price {
 	margin-left: 20px;
 	font-family: 'Almarai', sans-serif;
 	font-style: normal;
@@ -79,7 +86,9 @@ img{
 	color: #3BBEB6;
 
 }
-.title{
+
+.product-title {
+	width: fit-content;
 	margin-left: 20px;
 	font-family: 'Almarai', sans-serif;
 	font-style: normal;
@@ -88,7 +97,10 @@ img{
 	line-height: 16px;
 	color: #313131;
 }
-.sold{
+
+.product-sold {
+	width: fit-content;
+
 	margin-left: 20px;
 	font-family: 'Almarai', sans-serif;
 	font-style: normal;
@@ -98,8 +110,7 @@ img{
 	color: #A8ACB8;
 }
 
-.plus{
-	margin-right: 20px;
+.product-plus {
 	height: 42px;
 	width: 42px;
 	background: #000000;
@@ -107,9 +118,10 @@ img{
 	font-size: 12px;
 	color: aliceblue;
 	cursor: pointer;
-	
+
 }
-.minus{
+
+.product-minus {
 	border: 0px;
 	margin-right: 20px;
 	height: 42px;
@@ -119,15 +131,17 @@ img{
 	font-size: 12px;
 	color: #000000;
 	cursor: pointer;
-	
+
 }
 
-.btns{
+.product-btns {
+	margin-right: 20px;
 	display: flex;
 	justify-content: space-between;
-	align-items: center	;
+	align-items: center;
 }
-.counter{
+
+.product-counter {
 	margin-right: 20px;
 	font-family: 'Almarai', sans-serif;
 	font-style: normal;
@@ -138,8 +152,8 @@ img{
 	color: #313131;
 }
 
-.card{
-	color:antiquewhite;
+.card {
+	color: antiquewhite;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -154,18 +168,28 @@ img{
 	background: rgba(59, 190, 182, 0.9);
 	border-radius: 12px;
 }
-.test{
+
+.test {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
-.loadmore{
+.all-product-title {
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 27px;
+	color: #313131;
+	margin-bottom: 34px;
+}
+
+.loadmore {
 	position: relative;
 	cursor: pointer;
 	border: 0px;
 	z-index: 10;
 	margin-top: 30px;
+	margin-bottom: 68px;
 	width: 282px;
 	height: 54px;
 	background: rgba(168, 172, 184, 0.1);
@@ -173,30 +197,30 @@ img{
 	font-family: 'Almarai';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 18px;
-	line-height: 140%;
+	font-size: 15px;
 	text-align: center;
 	color: #313131;
 	transition: transform 100ms ease-out;
 }
-.loadmore:active{
+.loadmore-text{
+	margin-left: -14px;
+}
+.loadmore:active {
 	transition: transform 100ms ease-in;
 	transform: scale(1.01);
 }
 
-.arrow-wrapper{
-position: absolute;
-right: 10px;
-top: 0;
-bottom: 0;
-margin: auto 0;
-background-color: white;
-border-radius: 19px;
-width: 38px;
-height: 38px;
-display: inline-flex;
-justify-content: center;
-align-items: center;
+.arrow-wrapper {
+	position: absolute;
+	right: 10px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	background-color: white;
+	border-radius: 19px;
+	width: 38px;
+	height: 38px;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
 }
-
-

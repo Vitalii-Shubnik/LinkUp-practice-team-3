@@ -26,22 +26,27 @@ const AllProduct = (props) => {
   }, [page]);
 
   return (
-    <div className="test">
-      <ol className="products-grid">
-        {data.map((item) => {
-          return <Product key={item.id} item={item} />;
-        })}
-        <div className="gradient" onClick={(e) => e.preventDefault()}></div>
-      </ol>
-      {totalPages !== page && (
-        <button className="loadmore" onClick={() => setPage(page + 1)}>
-          {loading ? "Loading..." : "View more products"}
-          <span className="arrow-wrapper">
-            <ArrowDown />
-          </span>
-        </button>
-      )}
-    </div>
+    <>
+      <div className="all-product-title">
+        All products
+      </div>
+      <div className="test">
+        <div className="products-grid">
+          {data.map((item) => {
+            return <Product key={item.id} item={item} />;
+          })}
+          <div className="gradient" onClick={(e) => e.preventDefault()}></div>
+        </div>
+        {totalPages !== page && (
+          <button className="loadmore" onClick={() => setPage(page + 1)}>
+            <span className="loadmore-text">{loading ? "Loading..." : "View more products"}</span>
+            <span className="arrow-wrapper">
+              <ArrowDown />
+            </span>
+          </button>
+        )}
+      </div>
+    </>
   );
 };
 

@@ -6,8 +6,32 @@ import AllProduct from "./components/AllProduct";
 import products from "./components/data.js";
 import {Link} from 'react-router-dom'
 import NavBar from './components/Navbar'
-import ProductDetail from './pages/ProductDetail';
+import HomePage from './pages/HomePage';
+import image from './images/SliderImage.png'
+import Categories from './components/Categories';
 
+const imageSliderData = [
+  {
+    description: 'Test1',
+    title: 'title1',
+    url: image
+  },
+  {
+    description: 'Test2',
+    title: 'title2',
+    url: image
+  },
+  {
+    description: 'Test3',
+    title: 'title3',
+    url: image
+  },
+  {
+    description: 'Test4',
+    title: 'title4',
+    url: image
+  }
+]
 function App() {
   return (
     <>
