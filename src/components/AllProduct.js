@@ -39,7 +39,7 @@ const AllProduct = (props) => {
         </div>
         {totalPages !== page && (
           <button className="loadmore" onClick={() => setPage(page + 1)}>
-            {loading ? "Loading..." : "View more products"}
+            <span className="loadmore-text">{loading ? "Loading..." : "View more products"}</span>
             <span className="arrow-wrapper">
               <ArrowDown />
             </span>
