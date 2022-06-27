@@ -17,7 +17,7 @@ const SignIn = () => {
             </div>
           </div>
           <FormLogin />
-          <Link style={{ textDecoration: "none" }} to="/">
+          <Link style={{ textDecoration: "none" }} to="/sign-up">
             {/* change route above to login */}
             <div className="form_footer">
               New User?
