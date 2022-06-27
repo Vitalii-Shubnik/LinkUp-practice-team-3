@@ -35,7 +35,7 @@ const FormLogin = () => {
           handleSubmit,
           isSubmitting,
         }) => (
-          <form className="signup-form" onSubmit={handleSubmit}>
+          <form className="auth-form" onSubmit={handleSubmit}>
             <input
               className="login_form_input"
               type="email"
