@@ -14,7 +14,7 @@ const Product = (props) => {
   };
 
   return (
-    <li>
+    <div className="product-card">
       <div className="info">
         <div style={{ display: counter ? "flex" : "none" }} className="card">
           <CardIcon />
@@ -37,7 +37,7 @@ const Product = (props) => {
           </button>
           <div
             style={{ display: counter ? "block" : "none" }}
-            className="counter"
+            className="product-counter"
           >
             {counter}
           </div>
@@ -46,7 +46,7 @@ const Product = (props) => {
           </button>
         </div>
       </div>
-    </li>
+    </div>
   );
 };
 
