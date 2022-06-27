@@ -14,26 +14,22 @@ const Product = (props) => {
   };
 
   return (
-    <li>
-      <div className="info">
+    <div className="product-card">
+      <div className="product-main-info">
         <div style={{ display: counter ? "flex" : "none" }} className="card">
           <CardIcon />
           In Card
         </div>
-        <img
-          className="img_product"
-          src={props.item.image}
-          alt={props.item.title}
-        />
-        <h1 className="title">{props.item.title}</h1>
-        <h1 className="sold">{props.item.sold} Sold</h1>
+        <img className="img_product" src={props.item.image} alt={props.item.title} />
+        <h1 className="product-title">{props.item.title}</h1>
+        <h1 className="product-sold">{props.item.sold} Sold</h1>
       </div>
-      <div className="info2">
-        <p className="price">${props.item.price}</p>
-        <div className="btns">
+      <div className="product-price-info">
+        <p className="product-price">${props.item.price}</p>
+        <div className="product-btns">
           <button
             style={{ display: counter ? "block" : "none" }}
-            className="minus"
+            className="product-minus"
             type="button"
             onClick={decrease}
           >
@@ -41,16 +37,16 @@ const Product = (props) => {
           </button>
           <div
             style={{ display: counter ? "block" : "none" }}
-            className="counter"
+            className="product-counter"
           >
             {counter}
           </div>
-          <button className="plus" type="button" onClick={increase}>
+          <button className="product-plus" type="button" onClick={increase}>
             +
           </button>
         </div>
       </div>
-    </li>
+    </div>
   );
 };
 

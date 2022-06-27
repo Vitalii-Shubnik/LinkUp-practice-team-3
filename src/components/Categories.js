@@ -44,6 +44,26 @@ const data = [
     name: 'All Categories3',
     img: image
   },
+  {
+    id: '1',
+    name: 'All Categories',
+    img: image
+  },
+  {
+    id: '2',
+    name: 'All Categories1',
+    img: image
+  },
+  {
+    id: '3',
+    name: 'All Categories2',
+    img: image
+  },
+  {
+    id: '4',
+    name: 'All Categories3',
+    img: image
+  },
 ]
 
 const Categories = () => {
@@ -53,13 +73,11 @@ const Categories = () => {
       <div className='categories-title'>
         Categories
       </div>
-      <div className='categories-row'>
-        <ScrollMenu>
-          {data.map((el, index) => {
-            return <Category onClick={()=>setSelected(index)} name={el.name} key={el.id} img={el.img} selected={index === selected} first={index === 0} />
-          })}
-        </ScrollMenu>
-      </div>
+      <ScrollMenu>
+        {data.map((el, index) => {
+          return <Category onClick={() => setSelected(index)} name={el.name} key={el.id} img={el.img} selected={index === selected} first={index === 0} />
+        })}
+      </ScrollMenu>
     </div>
   )
 }

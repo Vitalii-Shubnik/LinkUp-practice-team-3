@@ -1,16 +1,13 @@
 :root{
   --horizontal-gap: 12%;
 }
-.categories-field{
-  padding-left: var(--horizontal-gap);
-  padding-right: var(--horizontal-gap);
-}
 .category-image-container img{
   height: 132px;
   width: 132px;
   object-fit: cover;
   border-radius: 8px;
 }
+
 .category-image-container{
   width: 132px;
   height: 132px;
@@ -38,6 +35,7 @@
 .categories-title{
   font-weight: 700;
   font-size: 24px;
+  line-height: 27px;
   color: #313131;
   margin-bottom: 34px;
 }
