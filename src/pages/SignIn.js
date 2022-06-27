@@ -1,27 +1,27 @@
 import React from "react";
 import "../styles/auth.css";
 import { MdOutlineClose } from "react-icons/md";
-import SignUpForm from "../components/SignUpForm";
 import { Link } from "react-router-dom";
+import FormLogin from "../components/FormLogin";
 
-const SignUp = () => {
+const SignIn = () => {
   return (
     <div className="main_containter">
-      <div className="block signup_image_block"></div>
+      <div className="block signin_image_block"></div>
       <div className="block auth_form_block">
-        <div className="form_space">
+        <div className="login_form_space">
           <div className="form_header">
-            <div className="form_title">Sign up</div>
+            <div className="form_title">Welcome</div>
             <div className="form_subtitle">
-              Just a few quick steps to create your account
+              Enter information below for login
             </div>
           </div>
-          <SignUpForm />
-          <Link style={{ textDecoration: "none" }} to="/sign-in">
+          <FormLogin />
+          <Link style={{ textDecoration: "none" }} to="/sign-up">
             {/* change route above to login */}
             <div className="form_footer">
-              Back to
-              <span className="form_footer_green"> Login</span>
+              New User?
+              <span className="form_footer_green"> Sign Up</span>
             </div>
           </Link>
         </div>
@@ -33,4 +33,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;

@@ -1,14 +1,12 @@
-import { React } from 'react'
-import ImageSlider from './components/ImageSlider'
-import './styles/slider.css'
-import img from './images/SliderImage.png'
-import AllProduct from "./components/AllProduct";
-import products from "./components/data.js";
-import {Link} from 'react-router-dom'
-import NavBar from './components/Navbar'
-import HomePage from './pages/HomePage';
+import { React, useState } from "react";
+import "./styles/slider.css";
+import NavBar from "./components/Navbar";
+import Cart from "./components/Cart";
+import props_cart from "./components/data2.js";
 import image from './images/SliderImage.png'
+
 import Categories from './components/Categories';
+
 
 const imageSliderData = [
   {
@@ -33,10 +31,18 @@ const imageSliderData = [
   }
 ]
 function App() {
+  const [visionCard, setVisionCard] = useState(false);
+  const [visionCheckout, setVisionCheckout] = useState(false);
   return (
     <>
-      <NavBar />
-      <ProductDetail />
+      <NavBar visionCard={visionCard} setVisionCard={setVisionCard} />
+      <Cart
+        items={props_cart}
+        visionCard={visionCard}
+        setVisionCard={setVisionCard}
+        visionCheckout={visionCheckout}
+        setVisionCheckout={setVisionCheckout}
+      />
     </>
   );
 }

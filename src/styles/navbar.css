@@ -51,6 +51,15 @@
   display: flex;
 }
 
+
+.cart_btn{
+  cursor: pointer;
+  border-radius: 2px;
+  border: 0px;
+  background-color: white;
+}
+
+
 .navbar-cart {
   display: flex;
   padding-right: 8px;
