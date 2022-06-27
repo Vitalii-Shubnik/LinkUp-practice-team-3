@@ -11,6 +11,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
+	gap: 10px;
 	padding: 0;
 }
 
@@ -32,8 +33,17 @@
 	background: linear-gradient(to bottom, transparent, white);
 }
 
+@media (min-width: 1536px){
+	.product-card{
+		width: 18%;
+	}
+}
+@media (max-width: 1536px){
+	.product-card {
+		width: 240px;
+	}
+}
 .product-card {
-	width: 200px;
 	margin-bottom: 2%;
 	background: #FFFFFF;
 	box-shadow: 0px 4px 19px rgba(0, 0, 0, 0.06);
