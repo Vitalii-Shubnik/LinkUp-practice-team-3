@@ -23,9 +23,7 @@ const Cart = ({
   return (
     <div className="cart_conteiner">
       <div
-        className={`cart_none_opacity ${
-          (visionCard || visionCheckout) && "cart_opacity"
-        }`}
+        className={`${(visionCard || visionCheckout) && "cart_opacity"}`}
       ></div>
       <div
         className={visionCard ? "cart active" : "cart"}
@@ -34,15 +32,17 @@ const Cart = ({
         <div className="cart_content" onClick={(e) => e.stopPropagation()}>
           <div className="cart_header">My Cart</div>
           <div
-            className="cross"
+            className="exit"
             onClick={() => setVisionCard(false)}
             style={{ textDecoration: "none" }}
           >
             <MdOutlineClose height={12} width={12} color="#313131" />
           </div>
-          {items.map((item) => {
-            return <Element key={item.id} item={item} />;
-          })}
+          <div className="cart-items-collection">
+            {items.map((item) => {
+              return <Element key={item.id} item={item} />;
+            })}
+          </div>
           <div className="cart_footer">
             <div className="checkout">
               <div className="total_price">${getDisplayNumber(totalPrice)}</div>

@@ -1,7 +1,27 @@
 import React from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
+import {url} from '../constants/constants'
+const register = async (data) => {
+  const user = await fetch(`${url}/auth/register`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      firstName: data.firstname,
+      secondName: data.lastname,
+      email: data.email,
+      password: data.password
+    })
+  }).then(res => res.json())
+  return user.access_token
+}
+
 const SignUpForm = () => {
+  const navigate = useNavigate();
+
   const SignupSchema = Yup.object().shape({
     firstname: Yup.string()
       .min(2, "Name is too short!")
@@ -34,12 +54,18 @@ const SignUpForm = () => {
           confirmPassword: "",
         }}
         validationSchema={SignupSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+        onSubmit={async (values, { setSubmitting }) => {
+          const user = await register(values)
+          setSubmitting(false)
+          localStorage.setItem('user', JSON.stringify(user))
+          navigate('/')
         }}
+      // onSubmit={(values, { setSubmitting }) => {
+      //   setTimeout(() => {
+      //     alert(JSON.stringify(values, null, 2));
+      //     setSubmitting(false);
+      //   }, 400);
+      // }}
       >
         {({
           values,
@@ -63,9 +89,8 @@ const SignUpForm = () => {
                   value={values.firstname}
                 />
                 <div
-                  className={`error ${
-                    touched.firstname && errors.firstname && "shown"
-                  }`}
+                  className={`error ${touched.firstname && errors.firstname && "shown"
+                    }`}
                 >
                   {errors.firstname}
                 </div>
@@ -81,9 +106,8 @@ const SignUpForm = () => {
                   value={values.lastname}
                 />
                 <div
-                  className={`error ${
-                    touched.lastname && errors.lastname && "shown"
-                  }`}
+                  className={`error ${touched.lastname && errors.lastname && "shown"
+                    }`}
                 >
                   {errors.lastname}
                 </div>
@@ -113,9 +137,8 @@ const SignUpForm = () => {
               value={values.password}
             />
             <div
-              className={`error ${
-                touched.password && errors.password && "shown"
-              }`}
+              className={`error ${touched.password && errors.password && "shown"
+                }`}
             >
               {errors.password}
             </div>
@@ -129,9 +152,8 @@ const SignUpForm = () => {
               value={values.confirmPassword}
             />
             <div
-              className={`error ${
-                touched.confirmPassword && errors.confirmPassword && "shown"
-              }`}
+              className={`error ${touched.confirmPassword && errors.confirmPassword && "shown"
+                }`}
             >
               {errors.confirmPassword}
             </div>

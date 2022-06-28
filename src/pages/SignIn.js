@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/auth.css";
 import { MdOutlineClose } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FormLogin from "../components/FormLogin";
 
+
 const SignIn = () => {
+  const [user, setUser] = useState(localStorage.getItem('user'))
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    user && navigate('/')
+  }, [])
   return (
     <div className="main_containter">
       <div className="block signin_image_block"></div>

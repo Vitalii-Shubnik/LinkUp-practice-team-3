@@ -3,8 +3,9 @@ import { Turn as Hamburger } from 'hamburger-react'
 import avatar from '../images/avatar.png'
 const UserMenu = () => {
   const [isOpen, setOpen] = useState(false)
-  const logout = async() => {
-    await alert('logout');
+  const logout = () => {
+    localStorage.removeItem('user')
+    window.location.reload()
   }
   return (
     <div className='user-menu'>

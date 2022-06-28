@@ -1,10 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/allproduct.css";
 // import { BsCart2 } from "react-icons/bs";
 import { ReactComponent as CardIcon } from "../images/card.svg";
 const Product = (props) => {
   let [counter, setCounter] = useState(0);
-
   const increase = () => {
     setCounter((count) => count + 1);
   };
@@ -12,9 +12,9 @@ const Product = (props) => {
   const decrease = () => {
     if (counter !== 0) setCounter((count) => count - 1);
   };
-
+  const navigate = useNavigate()
   return (
-    <div className="product-card">
+    <div className="product-card" onClick={()=>navigate(`/${props.item.id}`)}>
       <div className="product-main-info">
         <div style={{ display: counter ? "flex" : "none" }} className="card">
           <CardIcon />

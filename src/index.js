@@ -7,7 +7,10 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import SingIn from "./pages/SignIn";
+import ProductDetail from './pages/ProductDetail'
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -16,6 +19,7 @@ root.render(
           <Route path="/" element={<App />} />
           <Route path="sign-up" element={<SignUp />} />
           <Route path="sign-in" element={<SingIn />} />
+          <Route path="/:productId" element={<ProductDetail/>}/>
         </Routes>
       </Router>
     </Provider>

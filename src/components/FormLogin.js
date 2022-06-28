@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/auth.css";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
+import {url} from '../constants/constants'
+const login = async(data) => {
+  const user = await fetch(`${url}/auth/login`,{
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        email: data.email,
+        password: data.password
+    })
+  }).then(res=>res.json())
+  return user.access_token
+}
 
 const FormLogin = () => {
+  const navigate = useNavigate()
   const SignupSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string()
@@ -19,11 +35,11 @@ const FormLogin = () => {
           password: "",
         }}
         validationSchema={SignupSchema}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-          }, 400);
+        onSubmit={async(values, { setSubmitting }) => {
+          const user = await login(values)
+          setSubmitting(false)
+          localStorage.setItem('user', JSON.stringify(user) )
+          navigate('/')
         }}
       >
         {({
@@ -61,9 +77,8 @@ const FormLogin = () => {
             />
 
             <div
-              className={`error ${
-                touched.password && errors.password && "shown"
-              }`}
+              className={`error ${touched.password && errors.password && "shown"
+                }`}
             >
               {errors.password}
             </div>

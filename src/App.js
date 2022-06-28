@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import "./styles/slider.css";
 import NavBar from "./components/Navbar";
 import Cart from "./components/Cart";
@@ -6,7 +6,7 @@ import props_cart from "./components/data2.js";
 import image from './images/SliderImage.png'
 
 import Categories from './components/Categories';
-
+import HomePage from './pages/HomePage'
 
 const imageSliderData = [
   {
@@ -31,6 +31,14 @@ const imageSliderData = [
   }
 ]
 function App() {
+  const [user, setUser] = useState(null)
+  window.addEventListener('storage', () => {
+    setUser(localStorage.getItem('user'))
+  })
+  useEffect(() => {
+    setUser(localStorage.getItem('user'))
+  }, [])
+  
   const [visionCard, setVisionCard] = useState(false);
   const [visionCheckout, setVisionCheckout] = useState(false);
   return (
@@ -43,6 +51,7 @@ function App() {
         visionCheckout={visionCheckout}
         setVisionCheckout={setVisionCheckout}
       />
+      <HomePage/>
     </>
   );
 }

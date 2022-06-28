@@ -5,6 +5,7 @@
 }
 
 .navbar-div {
+  z-index: 10;
   padding-left: var(--sidepading);
   padding-right: var(--sidepading);
   height: var(--height);

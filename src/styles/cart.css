@@ -1,20 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&display=swap');
-.cart{
+.cart-items-collection::-webkit-scrollbar{
+    display: none;
+}
+.cart-items-collection{
+    padding-top: 15px;
+    overflow-y: scroll;
+    margin-bottom: 100px;
+}
+.cart {
+    z-index: 20;
     position: fixed;
     width: 100vw;
     height: 100vh;
-    top:0px;
+    top: 0px;
     right: 0;
-    
+
     transform: translateX(150%);
     transition: all 0.2s;
 }
-.active{
+
+.active {
     transform: translateX(0);
     transition: all 0.2s;
 }
 
-.blur{
+.blur {
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -24,9 +34,10 @@
 
 }
 
-.cart_opacity{
-    position: absolute;
-    top:0;
+.cart_opacity {
+    z-index: 19;
+    position: fixed;
+    top: 0;
     bottom: 0;
     width: 100%;
     height: 100%;
@@ -36,17 +47,10 @@
     transition: all 1s;
 }
 
-.cart_none_opacity{
-    position: fixed;
-    top:0;
-    bottom: 0;
-    right: 560px;
-    width: 100vw;
-    height: 100vh;
-    transition: all 0.2s;
-}
 
-.cart_content{
+
+.cart_content {
+    z-index: 10;
     position: fixed;
     right: 0;
     width: 560px;
@@ -58,7 +62,7 @@
     transition: all 0.4s;
 }
 
-.cart_header{
+.cart_header {
     font-family: 'Almarai';
     font-style: normal;
     font-weight: 700;
@@ -67,10 +71,13 @@
     color: #313131;
     padding-top: 72px;
     padding-left: 40px;
+    padding-bottom: 60px;
     font-size: 2rem;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
 }
 
-.cart_footer{
+.cart_footer {
     position: fixed;
     width: 560px;
     bottom: 0;
@@ -82,14 +89,15 @@
     border-radius: 50px 50px 0px 0px;
 }
 
-.checkout{
+.checkout {
     padding-top: 20px;
     padding-left: 32px;
     padding-bottom: 32px;
     display: flex;
     flex-direction: column;
 }
-.total_price{
+
+.total_price {
     font-family: 'Almarai';
     font-style: normal;
     font-weight: 400;
@@ -97,7 +105,8 @@
     line-height: 36px;
     color: #313131;
 }
-.total_price_title{
+
+.total_price_title {
     font-family: 'Almarai';
     font-style: normal;
     font-weight: 400;
@@ -106,7 +115,7 @@
     color: #A8ACB8;
 }
 
-.btn_checkout{
+.btn_checkout {
     margin-top: 20px;
     margin-right: 20px;
     margin-bottom: 32px;
@@ -114,18 +123,18 @@
     justify-content: center;
     align-items: center;
     width: 170px;
-    height: 54px;   
+    height: 54px;
     background: #3BBEB6;
     border-radius: 40px;
-    color:white;
+    color: white;
     cursor: pointer;
 }
 
-.cross{
+.cross {
     padding-left: 4px;
     padding-right: 4px;
     padding-top: 2px;
-    border-radius:12px;
+    border-radius: 12px;
     position: absolute;
     left: 90.36%;
     right: 7.5%;
@@ -138,7 +147,7 @@
 
 
 
-.cart_elem{
+.cart_elem {
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -148,81 +157,83 @@
     border-radius: 20px;
 }
 
-.img_cart_wrapper{
+.img_cart_wrapper {
     margin: 20px;
     width: 76px;
     height: 76px;
 
 }
 
-.img_cart{
+.img_cart {
     width: 100%;
 }
 
-.cart_elem{
+.cart_elem {
     margin-left: 40px;
     margin-right: 40px;
 }
 
 
-.elem_plus{
+.elem_plus {
     position: absolute;
     right: 20px;
     bottom: 18px;
-	height: 33px;
-	width: 33px;
-	background: #000000;
-	border-radius: 44px;
-	font-size: 12px;
-	color: aliceblue;
-	cursor: pointer;
+    height: 33px;
+    width: 33px;
+    background: #000000;
+    border-radius: 44px;
+    font-size: 12px;
+    color: aliceblue;
+    cursor: pointer;
 
 }
-.elem_minus{
-	border: 0px;
+
+.elem_minus {
+    border: 0px;
     position: absolute;
     right: 87px;
     bottom: 18px;
-	height: 33px;
-	width: 33px;
-	background: rgba(168, 172, 184, 0.1);
-	border-radius: 44px;
-	font-size: 12px;
-	color: #000000;
-	cursor: pointer;
+    height: 33px;
+    width: 33px;
+    background: rgba(168, 172, 184, 0.1);
+    border-radius: 44px;
+    font-size: 12px;
+    color: #000000;
+    cursor: pointer;
 
 }
 
-.elem_btns{
+.elem_btns {
     margin-top: 55px;
-	display: flex;
-	justify-content: space-between;
-	align-items: center	;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.elem_counter{
+
+.elem_counter {
     position: absolute;
     right: 68px;
     bottom: 25px;
-	font-family: 'Almarai', sans-serif;
-	font-style: normal;
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 20px;
-	text-align: center;
-	color: #313131;
+    font-family: 'Almarai', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #313131;
 }
 
-.info_cart_wrapper{
+.info_cart_wrapper {
     position: absolute;
     left: 120px;
     top: 38px;
     bottom: 38px;
-    display: flex; 
+    display: flex;
     flex-direction: column;
     margin: auto;
 }
 
-.elem_title{
+.elem_title {
     font-family: 'Almarai';
     font-style: normal;
     font-weight: 700;
@@ -231,7 +242,7 @@
     color: #313131;
 }
 
-.elem_price{
+.elem_price {
     margin-top: 8px;
     font-family: 'Almarai';
     font-style: normal;
@@ -241,21 +252,24 @@
     color: #3BBEB6;
 }
 
-._checkout{
+._checkout {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    top:0px;
+    top: 0px;
     right: 0;
     transform: translateX(150%);
     transition: all 0.2s;
 }
-._checkout_active{
+
+._checkout_active {
+    z-index: 20;
     transform: translateX(0);
     transition: all 0.2s;
 }
 
-._checkout_content{
+._checkout_content {
+    z-index: 20;
     position: fixed;
     right: 0;
     width: 560px;
@@ -269,11 +283,11 @@
     transition: all 0.4s;
 }
 
-.checkout_done{
+.checkout_done {
     margin-bottom: 22px;
 }
 
-.congratulation{
+.congratulation {
     font-family: 'Almarai';
     font-style: normal;
     font-weight: 700;
@@ -285,7 +299,7 @@
 }
 
 
-.checkout_discription{
+.checkout_discription {
     font-family: 'Almarai';
     font-style: normal;
     width: 220px;
@@ -299,8 +313,8 @@
     margin-bottom: 40px;
 }
 
-.total_price_in_checkout{
-    padding:0px 20px 0px 20px;
+.total_price_in_checkout {
+    padding: 0px 20px 0px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -311,7 +325,7 @@
     margin-top: 40px;
 }
 
-.total_price_in_checkout_amount{
+.total_price_in_checkout_amount {
     width: 130px;
     height: 36px;
     font-family: 'Almarai';
