@@ -2,7 +2,6 @@ import { React, useEffect, useState } from "react";
 import "./styles/slider.css";
 import NavBar from "./components/Navbar";
 import Cart from "./components/Cart";
-import props_cart from "./components/data2.js";
 import image from './images/SliderImage.png'
 
 import Categories from './components/Categories';
@@ -41,16 +40,18 @@ function App() {
   
   const [visionCard, setVisionCard] = useState(false);
   const [visionCheckout, setVisionCheckout] = useState(false);
+  const [query, setQuery] = useState('');
+
   return (
     <>
-      <NavBar visionCard={visionCard} setVisionCard={setVisionCard} />
-      <Cart
+      <NavBar setQuery={setQuery} visionCard={visionCard} setVisionCard={setVisionCard} />
+      {user && <Cart
         visionCard={visionCard}
         setVisionCard={setVisionCard}
         visionCheckout={visionCheckout}
         setVisionCheckout={setVisionCheckout}
-      />
-      <HomePage/>
+      />}
+      <HomePage query={query}/>
     </>
   );
 }

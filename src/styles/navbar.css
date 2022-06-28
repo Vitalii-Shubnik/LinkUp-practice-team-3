@@ -54,12 +54,13 @@
 
 
 .cart_btn{
-  cursor: pointer;
   border-radius: 2px;
   border: 0px;
   background-color: white;
 }
-
+.cursor-pointer{
+  cursor: pointer;
+}
 
 .navbar-cart {
   display: flex;
@@ -68,7 +69,7 @@
   position: relative;
 }
 
-.counter {
+.navbar-counter {
   color: white;
   font-weight: 700;
   font-size: 12px;

@@ -45,7 +45,6 @@ const Element = (props) => {
           -
         </button>
         <div
-          style={{ display: counter ? "block" : "none" }}
           className="elem_counter"
         >
           {counter}

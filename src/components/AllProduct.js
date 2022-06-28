@@ -4,12 +4,12 @@ import Product from "./Product";
 import { ReactComponent as ArrowDown } from "../images/arrowdown.svg";
 import Loader from "../Loader";
 import { url } from "../constants/constants";
-const AllProduct = () => {
+const AllProduct = ({query,queryCategory}) => {
   const perPage = 5;
   const [page, setPage] = useState(1);
   const [productList, setProductList] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  console.log(query, queryCategory)
   useEffect(() => {
     const getProductList = () => {
       setLoading(true);
@@ -23,6 +23,18 @@ const AllProduct = () => {
     getProductList();
   }, [page]);
 
+  useEffect(() => {
+    const getProductList = () => {
+      setLoading(true);
+      fetch(`${url}/products?per_page=${perPage}&page=${1}&${query && query}${queryCategory && queryCategory}`)
+        .then(res => res.json())
+        .then(res => {
+          setProductList([...res]);
+          setLoading(false);
+        });
+    }
+    getProductList();
+  }, [query,queryCategory]);
   return (
     <>
       <div className="all-product-title">
@@ -31,7 +43,7 @@ const AllProduct = () => {
       <div className="test">
         <div className="products-grid">
           {productList.map((item) => {
-            return <Product key={item.id} item={item} />;
+            return <Product item={item} />;
           })}
           <div className="gradient" onClick={(e) => e.preventDefault()}></div>
         </div>

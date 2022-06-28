@@ -42,6 +42,7 @@
 }
 
 .main-image {
+  border-radius: 32px;
   width: 529px;
   height: 441px;
   object-fit: cover;

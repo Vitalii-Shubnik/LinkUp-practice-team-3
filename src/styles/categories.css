@@ -13,6 +13,7 @@
   height: 132px;
 }
 .category{
+  cursor: pointer;
   margin-left: 11px;
   margin-right: 11px;
   margin-bottom: 5px;

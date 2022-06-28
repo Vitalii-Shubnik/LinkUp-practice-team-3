@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import AllProduct from '../components/AllProduct'
 import ImageSlider from '../components/ImageSlider'
 import Categories from '../components/Categories'
 import image from '../images/SliderImage.png'
-import data from '../components/data'
 import '../styles/homepage.css'
 const imageSliderData = [
   {
@@ -28,17 +27,19 @@ const imageSliderData = [
   }
 ]
 
-const HomePage = () => {
+const HomePage = ({query}) => {
+  const [queryCategory, setQueryCategory] = useState('');
+
   return (
     <div className='homePage'>
       <div className='homepage-image-slider'>
         <ImageSlider data={imageSliderData} />
       </div>
       <div className='homepage-categories'>
-        <Categories />
+        <Categories setQueryCategory={setQueryCategory}/>
       </div>
       <div className='homepage-all-products'>
-        <AllProduct /> 
+        <AllProduct queryCategory={queryCategory} query={query}/> 
       </div>
     </div>
   )

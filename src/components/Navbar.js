@@ -7,21 +7,23 @@ import AuthMenu from "./AuthMenu";
 import UserMenu from "./UserMenu";
 import { url } from "../constants/constants";
 
-const NavBar = ({ visionCard, setVisionCard }) => {
+const NavBar = ({ setQuery, visionCard, setVisionCard }) => {
   const [count, setCount] = useState(0);
   const [userData, setUserData] = useState(localStorage.getItem('user'));
   useEffect(() => {
-    const getCounter = async() => {
-      const data = await fetch(`${url}/user/cart`, {
-        method: "GET",
-        headers: {
-          'Authorization': `Bearer ${JSON.parse(userData)}`
-        },
-      }).then(data=>data.json())
-      console.log(data)
-      setCount(data.length)
+    if (userData && userData !== 'undefined') {
+      const getCounter = async () => {
+        const data = await fetch(`${url}/user/cart`, {
+          method: "GET",
+          headers: {
+            'Authorization': `Bearer ${JSON.parse(userData)}`
+          },
+        }).then(data => data.json())
+        console.log(data)
+        setCount(data.length)
+      }
+      getCounter()
     }
-    getCounter()
   }, [])
 
   return (
@@ -30,15 +32,15 @@ const NavBar = ({ visionCard, setVisionCard }) => {
         <div className='image_div'>
           <img src={logo} alt='logo' className='logo-image' />
         </div>
-        <Search />
+        <Search setQuery={setQuery}/>
         <div className="right-panel">
           <button
-            className="cart_btn"
+            className={`cart_btn ${userData ? 'cursor-pointer' : ''}`}
             onClick={() => setVisionCard(!visionCard)}
           >
             <div className="navbar-cart">
               <BsCart2 size={"24px"} className="cart-icon" />
-              <div className="counter">{count > 9 ? "9+" : count}</div>
+              {userData && userData !== 'undefined' && count && <div className="navbar-counter">{count > 9 ? "9+" : count}</div>}
             </div>
           </button>
           <div className="auth-menu">{userData !== 'undefined' && userData ? <UserMenu /> : <AuthMenu />}</div>

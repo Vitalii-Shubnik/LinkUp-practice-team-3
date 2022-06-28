@@ -5,7 +5,7 @@ import { ScrollMenu } from 'react-horizontal-scrolling-menu'
 import '../styles/categories.css'
 import { url } from '../constants/constants'
 
-const Categories = () => {
+const Categories = ({setQueryCategory}) => {
   const [selected, setSelected] = useState(0)
   const [categories, setCategories] = useState([])
   useEffect(() => {
@@ -29,7 +29,11 @@ const Categories = () => {
             return -1;
           }
         }).map((el, index) => {
-          return <Category onClick={() => setSelected(index)} name={el.name} key={el.id} id={el.id} selected={index === selected} first={index === 0} />
+          return <Category onClick={() => {
+            setSelected(index)
+            setQueryCategory(`${el.name=='All Category'? '':`&category=${el.name}`}`)
+          }} 
+          name={el.name} key={el.id} id={el.id} selected={index === selected} first={index === 0} />
         })}
       </ScrollMenu>
     </div>
