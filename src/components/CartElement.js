@@ -1,29 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { changeNumberOfProductInCart } from "../app/service";
+import { url } from "../constants/constants";
 
 const Element = (props) => {
-  let [counter, setCounter] = useState(props.item.count);
+  const [counter, setCounter] = useState(props.item.itemCount)
+  const [loading, setLoading] = useState(false)
+  const [image, setImage] = useState(null);
 
-  const increase = () => {
-    setCounter((count) => count + 1);
-  };
-
-  const decrease = () => {
-    if (counter !== 0) setCounter((count) => count - 1);
-  };
-
+  const user = localStorage.getItem('user')
+  useEffect(() => {
+    const setInCart = async () => {
+      const res = await fetch(`${url}/photos/product/${props.item.product.id}`)
+      const imageBlob = await res.blob();
+      const imageObjectURL = URL.createObjectURL(imageBlob);
+      setImage(imageObjectURL)
+    }
+    setInCart()
+  }, [])
   return (
     <div className="cart_elem">
       <div className="img_cart_wrapper">
         <img
           className="img_cart"
-          src={props.item.image}
-          alt={props.item.title}
+          src={image}
+          alt={props.item.product.name}
         />
       </div>
 
       <div className="info_cart_wrapper">
-        <div className="elem_title">{props.item.title}</div>
-        <div className="elem_price">${props.item.price}</div>
+        <div className="elem_title">{props.item.product.name}</div>
+        <div className="elem_price">{props.item.product.price}</div>
       </div>
 
       <div className="elem_btns">
@@ -31,7 +37,10 @@ const Element = (props) => {
           style={{ display: counter ? "block" : "none" }}
           className="elem_minus"
           type="button"
-          onClick={decrease}
+          onClick={async () => {
+            user !== 'undefined' && user && setCounter(await changeNumberOfProductInCart(user, props.item.product.id, setLoading, -1));
+            props.setPrice(props.price - props.item.product.price.substring(1))
+          }}
         >
           -
         </button>
@@ -41,7 +50,13 @@ const Element = (props) => {
         >
           {counter}
         </div>
-        <button className="elem_plus" type="button" onClick={increase}>
+        <button className="elem_plus" type="button"
+          onClick={async () => {
+            user !== 'undefined' && user && setCounter(await changeNumberOfProductInCart(user, props.item.product.id, setLoading, 1))
+            props.setPrice(props.price + parseFloat(props.item.product.price.substring(1)))
+
+          }}
+        >
           +
         </button>
       </div>

@@ -12,7 +12,6 @@ const Categories = () => {
     const getCategories = async () => {
       const categories = await fetch(`${url}/products/categories`).then(data => data.json())
       setCategories(categories)
-      console.log(categories)
     }
     getCategories()
   }, [])

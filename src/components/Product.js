@@ -1,38 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/allproduct.css";
+// import image from '../images/example.png'
+import { changeNumberOfProductInCart } from "../app/service";
 // import { BsCart2 } from "react-icons/bs";
 import { ReactComponent as CardIcon } from "../images/card.svg";
+import { url } from "../constants/constants";
 const Product = (props) => {
-  let [counter, setCounter] = useState(0);
-  const increase = () => {
-    setCounter((count) => count + 1);
-  };
-
-  const decrease = () => {
-    if (counter !== 0) setCounter((count) => count - 1);
-  };
+  const [counter, setCounter] = useState(0);
+  const [Loading, setLoading] = useState(false);
+  const [image, setImage] = useState(null);
+  const user = localStorage.getItem('user')
+  
   const navigate = useNavigate()
+  useEffect(() => {
+    const setInCart = async() =>{
+      setCounter(await changeNumberOfProductInCart(user, props.item.id, setLoading, 0)) 
+      const res = await fetch(`${url}/photos/product/${props.item.id}`)
+      const imageBlob = await res.blob();
+      const imageObjectURL = URL.createObjectURL(imageBlob);
+      setImage(imageObjectURL)
+    }
+    setInCart()
+  }, [])
+
+
   return (
-    <div className="product-card" onClick={()=>navigate(`/${props.item.id}`)}>
-      <div className="product-main-info">
+    <div className="product-card" >
+      <div className="product-main-info" onClick={() => navigate(`/product/${props.item.id}`)}>
         <div style={{ display: counter ? "flex" : "none" }} className="card">
           <CardIcon />
           In Card
         </div>
-        <img className="img_product" src={props.item.image} alt={props.item.title} />
-        <h1 className="product-title">{props.item.title}</h1>
-        <h1 className="product-sold">{props.item.sold} Sold</h1>
+        {image && <img className="img_product" src={image} alt={props.item.name} />}
+        <h1 className="product-title">{props.item.name}</h1>
+        <h1 className="product-sold">{props.item.soldCount} Sold</h1>
       </div>
       <div className="product-price-info">
-        <p className="product-price">${props.item.price}</p>
+        <p className="product-price">{props.item.price}</p>
         <div className="product-btns">
           <button
             style={{ display: counter ? "block" : "none" }}
             className="product-minus"
             type="button"
-            onClick={decrease}
+            onClick={async() => { user!=='undefined' && user && setCounter(await changeNumberOfProductInCart(user, props.item.id, setLoading, -1)) }}
           >
+            {/* {!Loading && "-"} */}
             -
           </button>
           <div
@@ -41,7 +54,10 @@ const Product = (props) => {
           >
             {counter}
           </div>
-          <button className="product-plus" type="button" onClick={increase}>
+          <button className="product-plus" type="button"
+            onClick={async() => {user!=='undefined' && user && setCounter(await changeNumberOfProductInCart(user, props.item.id, setLoading, 1)) }}
+          >
+            {/* {!Loading && "+"} */}
             +
           </button>
         </div>

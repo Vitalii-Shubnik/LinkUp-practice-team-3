@@ -45,7 +45,6 @@ function App() {
     <>
       <NavBar visionCard={visionCard} setVisionCard={setVisionCard} />
       <Cart
-        items={props_cart}
         visionCard={visionCard}
         setVisionCard={setVisionCard}
         visionCheckout={visionCheckout}

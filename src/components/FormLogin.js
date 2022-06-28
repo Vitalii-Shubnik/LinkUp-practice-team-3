@@ -39,7 +39,7 @@ const FormLogin = () => {
           const user = await login(values)
           setSubmitting(false)
           localStorage.setItem('user', JSON.stringify(user) )
-          navigate('/')
+          user && navigate('/')
         }}
       >
         {({

@@ -1,23 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/cart.css";
 import { MdOutlineClose } from "react-icons/md";
 import Element from "./CartElement";
 import { ReactComponent as CheckoutDone } from "../images/checkout_done_img.svg";
+import { url } from "../constants/constants";
 
 const Cart = ({
-  items,
   visionCard,
   setVisionCard,
   visionCheckout,
   setVisionCheckout,
 }) => {
-  const [totalPrice, setTotalPrice] = useState(
-    items.reduce(
-      (total, currentValue) =>
-        (total = total + currentValue.price * currentValue.count),
-      0
-    )
-  );
+  const [cart, setCart] = useState([])
+  const [totalPrice, setTotalPrice] = useState(0);
+  const user = localStorage.getItem('user')
+  const [loading, setLoading] = useState(false)
+  useEffect(() => {
+    const getProductList = async () => {
+      setLoading(true);
+      const cartData = await fetch(`${url}/user/cart`, {
+        method: "GET",
+        headers: {
+          'Authorization': `Bearer ${JSON.parse(user)}`
+        },
+      }).then(data => data.json())
+      setCart(cartData)
+    }
+    getProductList();
+    
+  }, []);
+  useEffect(()=>{
+    setTotalPrice(cart.reduce((total, currentValue) => (total = total + currentValue.product.price.substring(1) * currentValue.itemCount), 0))
+  },[cart])
   const getDisplayNumber = (num) =>
     (Math.round(Number(num) * 100) / 100).toFixed(2);
   return (
@@ -39,8 +53,8 @@ const Cart = ({
             <MdOutlineClose height={12} width={12} color="#313131" />
           </div>
           <div className="cart-items-collection">
-            {items.map((item) => {
-              return <Element key={item.id} item={item} />;
+            {cart && cart.map((item) => {
+              return item.itemCount && <Element price={totalPrice} setPrice={setTotalPrice} key={item.id} item={item} />;
             })}
           </div>
           <div className="cart_footer">

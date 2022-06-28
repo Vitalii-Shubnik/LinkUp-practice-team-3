@@ -19,7 +19,7 @@ root.render(
           <Route path="/" element={<App />} />
           <Route path="sign-up" element={<SignUp />} />
           <Route path="sign-in" element={<SingIn />} />
-          <Route path="/:productId" element={<ProductDetail/>}/>
+          <Route path="/product/:productId" element={<ProductDetail/>}/>
         </Routes>
       </Router>
     </Provider>

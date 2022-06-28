@@ -38,7 +38,7 @@ const HomePage = () => {
         <Categories />
       </div>
       <div className='homepage-all-products'>
-        <AllProduct items={data}/> 
+        <AllProduct /> 
       </div>
     </div>
   )

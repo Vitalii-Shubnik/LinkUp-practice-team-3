@@ -10,7 +10,7 @@ const SignUp = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    user && navigate('/')
+    user!=='undefined' && user && navigate('/')
   }, [])
 
   return (

@@ -58,7 +58,7 @@ const SignUpForm = () => {
           const user = await register(values)
           setSubmitting(false)
           localStorage.setItem('user', JSON.stringify(user))
-          navigate('/')
+          user && navigate('/')
         }}
       // onSubmit={(values, { setSubmitting }) => {
       //   setTimeout(() => {

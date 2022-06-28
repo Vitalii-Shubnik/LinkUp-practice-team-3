@@ -10,7 +10,7 @@ const SignIn = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    user && navigate('/')
+    user!=='undefined' && user && navigate('/')
   }, [])
   return (
     <div className="main_containter">
