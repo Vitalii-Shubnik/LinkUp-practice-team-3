@@ -12,32 +12,36 @@ const AllProduct = ({ query, queryCategory }) => {
     const getProductList = () => {
       setLoading(true);
       fetch(`${url}/products?per_page=${perPage}&page=${page}`)
-        .then(res => res.json())
-        .then(res => {
+        .then((res) => res.json())
+        .then((res) => {
           setProductList([...productList, ...res]);
-          setLoading(false);
-        });
-    }
+        })
+        .catch((error) => console.error(error))
+        .finally(() => setLoading(false));
+    };
     getProductList();
   }, [page]);
 
   useEffect(() => {
     const getProductList = () => {
       setLoading(true);
-      fetch(`${url}/products?per_page=${perPage}&page=${1}&${query && query}${queryCategory && queryCategory}`)
-        .then(res => res.json())
-        .then(res => {
+      fetch(
+        `${url}/products?per_page=${perPage}&page=${1}&${query && query}${
+          queryCategory && queryCategory
+        }`
+      )
+        .then((res) => res.json())
+        .then((res) => {
           setProductList([...res]);
-          setLoading(false);
-        });
-    }
+        })
+        .catch((error) => console.error(error))
+        .finally(() => setLoading(false));
+    };
     getProductList();
   }, [query, queryCategory]);
   return (
     <>
-      <div className="all-product-title">
-        All products
-      </div>
+      <div className="all-product-title">All products</div>
       <div className="test">
         <div className="products-grid">
           {productList.map((item) => {
@@ -46,7 +50,9 @@ const AllProduct = ({ query, queryCategory }) => {
           <div className="gradient" onClick={(e) => e.preventDefault()}></div>
         </div>
         <button className="loadmore" onClick={() => setPage(page + 1)}>
-          <span className="loadmore-text">{loading ? "Loading..." : "View more products"}</span>
+          <span className="loadmore-text">
+            {loading ? "Loading..." : "View more products"}
+          </span>
           <span className="arrow-wrapper">
             <ArrowDown />
           </span>

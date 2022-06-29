@@ -1,34 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/auth.css";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { url } from "../constants/constants";
-const login = async (data) => {
-  try {
-    const user = await fetch(`${url}/auth/login`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: data.email,
-        password: data.password,
-      }),
+const login = async (data, setLoading) => {
+  const user = await fetch(`${url}/auth/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: data.email,
+      password: data.password,
+    }),
+  })
+    .then((res) => {
+      res.json();
     })
-      .then((res) => {
-        res.json();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    return user.access_token;
-  } catch (error) {
-    console.log(error);
-  }
+    .catch((error) => console.error(error))
+    .finally(() => setLoading(false));
+  return user.access_token;
 };
 
 const FormLogin = () => {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const SignupSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Email is required"),
@@ -43,11 +39,11 @@ const FormLogin = () => {
         initialValues={{ email: "", password: "" }}
         validationSchema={SignupSchema}
         onSubmit={async (values, { setSubmitting }) => {
-          const user = await login(values);
+          const user = await login(values, setLoading);
           setSubmitting(false);
           localStorage.setItem("user", JSON.stringify(user));
           user && navigate("/");
-          window.location.reload()
+          window.location.reload();
         }}
       >
         {({
