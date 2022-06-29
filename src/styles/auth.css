@@ -15,14 +15,14 @@
     background: white;
   }
   
-  .signup_image_block {
+  .auth_image_block{
     border-radius: 20px;
     background: url(../images/pexels-karolina-grabowska-4466208.png);
     background-repeat: no-repeat;
     background-size: cover;
-    width: calc(40% - var(--gap)/2);
+    background-position: 50% 43%;
   }
-  
+
   .auth_form_block {
     display: flex;
     justify-content: center;
@@ -30,13 +30,6 @@
   }
 
 
-  .signin_image_block {
-    border-radius: 20px;
-    background: url(../images/pexels_login.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 1112px;
-  }
   
   .exit {
     cursor: pointer;

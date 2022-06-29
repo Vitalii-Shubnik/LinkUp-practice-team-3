@@ -5,17 +5,19 @@ import SignUpForm from "../components/SignUpForm";
 import { Link, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-
-  const [user, setUser] = useState(localStorage.getItem('user'))
-  const navigate = useNavigate()
+  const [user, setUser] = useState(localStorage.getItem("user"));
+  const navigate = useNavigate();
 
   useEffect(() => {
-    user!=='undefined' && user && navigate('/')
-  }, [])
+    user !== "undefined" && user && navigate("/");
+  }, []);
 
   return (
     <div className="main_containter">
-      <div className="block signup_image_block"></div>
+      <div
+        className="block auth_image_block"
+        style={{ width: "calc(40% - var(--gap)/2)" }}
+      ></div>
       <div className="block auth_form_block">
         <div className="form_space">
           <div className="form_header">
