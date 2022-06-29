@@ -19,7 +19,6 @@ const NavBar = ({ setQuery, visionCard, setVisionCard }) => {
             'Authorization': `Bearer ${JSON.parse(userData)}`
           },
         }).then(data => data.json())
-        console.log(data)
         setCount(data.length)
       }
       getCounter()

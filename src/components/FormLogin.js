@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/auth.css";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -47,6 +47,7 @@ const FormLogin = () => {
           setSubmitting(false);
           localStorage.setItem("user", JSON.stringify(user));
           user && navigate("/");
+          window.location.reload()
         }}
       >
         {({

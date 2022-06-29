@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/allproduct.css";
-// import image from '../images/example.png'
 import { changeNumberOfProductInCart } from "../app/service";
-// import { BsCart2 } from "react-icons/bs";
 import { ReactComponent as CardIcon } from "../images/card.svg";
 import { url } from "../constants/constants";
+
 const Product = (props) => {
   const [counter, setCounter] = useState(0);
   const [Loading, setLoading] = useState(false);
   const [image, setImage] = useState(null);
   const user = localStorage.getItem('user')
-  
+
   const navigate = useNavigate()
   useEffect(() => {
-    const setInCart = async() =>{
-      setCounter(await changeNumberOfProductInCart(user, props.item.id, setLoading, 0)) 
+    const setInCart = async () => {
+      setCounter(await changeNumberOfProductInCart(user, props.item.id, setLoading, 0))
       const res = await fetch(`${url}/photos/product/${props.item.id}`)
       const imageBlob = await res.blob();
       const imageObjectURL = URL.createObjectURL(imageBlob);
@@ -43,9 +42,8 @@ const Product = (props) => {
             style={{ display: counter ? "block" : "none" }}
             className="product-minus"
             type="button"
-            onClick={async() => { user!=='undefined' && user && setCounter(await changeNumberOfProductInCart(user, props.item.id, setLoading, -1)) }}
+            onClick={async () => { user !== 'undefined' && user && setCounter(await changeNumberOfProductInCart(user, props.item.id, setLoading, -1)) }}
           >
-            {/* {!Loading && "-"} */}
             -
           </button>
           <div
@@ -55,9 +53,8 @@ const Product = (props) => {
             {counter}
           </div>
           <button className="product-plus" type="button"
-            onClick={async() => {user!=='undefined' && user && setCounter(await changeNumberOfProductInCart(user, props.item.id, setLoading, 1)) }}
+            onClick={async () => { user !== 'undefined' && user && setCounter(await changeNumberOfProductInCart(user, props.item.id, setLoading, 1)) }}
           >
-            {/* {!Loading && "+"} */}
             +
           </button>
         </div>

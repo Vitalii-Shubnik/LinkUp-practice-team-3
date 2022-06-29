@@ -5,23 +5,11 @@ import testImage from '../images/SliderImage.png'
 import { useNavigate, useParams } from 'react-router-dom'
 import { url } from '../constants/constants'
 import { changeNumberOfProductInCart } from '../app/service'
-//temporary data
-const mainData = {
-  title: 'Wiley Saddle Bag - Fossil',
-  sold: 234,
-  description: 'Finish every look on a note of Parisian chic with the Lou Camera crossbody bag from Saint Laurent, presented here in cream beige. Made in Italy from chevron matelassé leather, the design is adorned with golden hardware.',
-  price: 2002,
-}
-const extraData = {
-  images: [testImage, testImage, testImage],
-  title: 'Take a look',
-  description: "No matter where you're heading, the Uptown wallet on chain from Saint Laurent will lend Parisian glamour to your looks. The slimline design comes in moss green leather embossed with a croc-effect, and its envelope silhouette is completed with a gold-toned iteration of the brand's iconic YSL monogram plaque.Suited for day-to-night styles, the Uptown clutch from Saint",
-}
+
 const ProductDetail = () => {
   const [added, setAdded] = useState(false)
   const [loading, setLoading] = useState(false)
   const [mainInfo, setMainInfo] = useState({})
-  const [secondaryInfo, setSecondaryInfo] = useState({})
   const user = localStorage.getItem('user')
   const { productId } = useParams()
   useEffect(() => {
@@ -31,7 +19,6 @@ const ProductDetail = () => {
         .then(res => res.json())
         .then(res => {
           setMainInfo(res);
-          console.log(mainInfo)
           setLoading(false);
         });
     }

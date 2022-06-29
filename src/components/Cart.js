@@ -27,11 +27,11 @@ const Cart = ({
       setCart(cartData)
     }
     getProductList();
-    
+
   }, []);
-  useEffect(()=>{
+  useEffect(() => {
     setTotalPrice(cart.reduce((total, currentValue) => (total = total + currentValue.product.price.substring(1) * currentValue.itemCount), 0))
-  },[cart])
+  }, [cart])
   const getDisplayNumber = (num) =>
     (Math.round(Number(num) * 100) / 100).toFixed(2);
   return (
@@ -53,7 +53,7 @@ const Cart = ({
             <MdOutlineClose height={12} width={12} color="#313131" />
           </div>
           <div className="cart-items-collection">
-            { cart && cart.map((item) => {
+            {cart && cart.map((item) => {
               return !!item.itemCount && <Element price={totalPrice} setPrice={setTotalPrice} key={item.id} item={item} />;
             })}
           </div>

@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import "../styles/allproduct.css";
 import Product from "./Product";
 import { ReactComponent as ArrowDown } from "../images/arrowdown.svg";
-import Loader from "../Loader";
 import { url } from "../constants/constants";
-const AllProduct = ({query,queryCategory}) => {
+const AllProduct = ({ query, queryCategory }) => {
   const perPage = 5;
   const [page, setPage] = useState(1);
   const [productList, setProductList] = useState([]);
   const [loading, setLoading] = useState(false);
-  console.log(query, queryCategory)
   useEffect(() => {
     const getProductList = () => {
       setLoading(true);
@@ -34,7 +32,7 @@ const AllProduct = ({query,queryCategory}) => {
         });
     }
     getProductList();
-  }, [query,queryCategory]);
+  }, [query, queryCategory]);
   return (
     <>
       <div className="all-product-title">

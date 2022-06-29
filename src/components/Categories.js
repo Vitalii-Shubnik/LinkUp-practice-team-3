@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import image from '../images/pexels-karolina-grabowska-4466208.png'
 import Category from './Category'
 import { ScrollMenu } from 'react-horizontal-scrolling-menu'
 import '../styles/categories.css'
