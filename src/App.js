@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { React, useEffect, useState } from "react";
+import "./styles/slider.css";
+import NavBar from "./components/Navbar";
+import Cart from "./components/Cart";
+import HomePage from './pages/HomePage'
 
 function App() {
+  const [user, setUser] = useState(null)
+  window.addEventListener('storage', () => {
+    setUser(localStorage.getItem('user'))
+  })
+  useEffect(() => {
+    setUser(localStorage.getItem('user'))
+  }, [])
+  
+  const [visionCard, setVisionCard] = useState(false);
+  const [visionCheckout, setVisionCheckout] = useState(false);
+  const [query, setQuery] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar setQuery={setQuery} visionCard={visionCard} setVisionCard={setVisionCard} />
+      {user && <Cart
+        visionCard={visionCard}
+        setVisionCard={setVisionCard}
+        visionCheckout={visionCheckout}
+        setVisionCheckout={setVisionCheckout}
+      />}
+      <HomePage query={query}/>
+    </>
   );
 }
 
